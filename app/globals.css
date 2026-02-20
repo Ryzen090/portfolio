@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.font-Fugaz {
+  font-family: "Fugaz", sans-serif;
+}
+
+@font-face {
+  font-family: "Fugaz";
+  src: url("../public/fugaz.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
