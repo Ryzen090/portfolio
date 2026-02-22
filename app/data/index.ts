@@ -1,6 +1,6 @@
 import { Github, Linkedin, Send } from "lucide-react";
 
-export const socialLinks = [
+const socialLinks = [
   {
     icon: Github,
     href: "https://github.com/Ryzen090",
@@ -21,7 +21,7 @@ export const socialLinks = [
   },
 ];
 
-export const projects = [
+const projects = [
   {
     id: 1,
     title: "Svay Rieng Football Club",
@@ -37,3 +37,5 @@ export const projects = [
     tech: ["Angular", "Material UI"],
   },
 ];
+
+export { socialLinks, projects };
