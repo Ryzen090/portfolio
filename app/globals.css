@@ -31,7 +31,6 @@ body {
 
 @font-face {
   font-family: "Fugaz";
-  src: url("../public/fugaz.ttf") format("truetype");
-  font-style: normal;
+  src: url("../public/font/fugaz.ttf") format("truetype");
   font-display: swap;
 }

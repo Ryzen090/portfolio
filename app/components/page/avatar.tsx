@@ -54,6 +54,13 @@ export default function AvatarViewer() {
           pointerEvents: "none",
         }}
       ></div>
+      <div
+        className="absolute inset-0 z-5 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%)",
+        }}
+      ></div>
     </div>
   );
 }

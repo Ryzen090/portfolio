@@ -6,7 +6,7 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 export default function Scene(props: any) {
   const group = React.useRef<Group>(null);
 
-  const { scene, animations } = useGLTF("/hero.glb");
+  const { scene, animations } = useGLTF("/3D/hero.glb");
 
   const { actions } = useAnimations(animations, group);
 
