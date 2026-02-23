@@ -1,6 +1,6 @@
 "use client";
 
-import { Scene } from "./page";
+import { Scene } from "./view";
 import { socialLinks } from "../data";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";

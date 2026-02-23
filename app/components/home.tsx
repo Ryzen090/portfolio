@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { Avatar } from "./page";
+import { Avatar } from "./view";
+import Image from "./utils/Image";
 
 export default function Home() {
   return (
@@ -16,18 +16,18 @@ export default function Home() {
         </p>
 
         <p className="text-gray-500 mt-2 text-base max-w-xl">
-          Specializing in React, Next.js, and modern web technologies
+          Specializing in React, Next.js, Angular, and modern web technologies
         </p>
       </section>
 
       <section className="z-10 mt-20 w-full max-w-5xl px-8">
         <div className="flex justify-center md:justify-between items-center gap-12">
-          <img
+          <Image
             src="/icon/framer.png"
             alt="React"
             className="w-24 h-24 md:w-32 md:h-32 transition duration-300 hover:scale-110 hover:-translate-y-2"
           />
-          <img
+          <Image
             src="/icon/framer.png"
             alt="Angular"
             className="w-24 h-24 md:w-32 md:h-32 transition duration-300 hover:scale-110 hover:-translate-y-2"
