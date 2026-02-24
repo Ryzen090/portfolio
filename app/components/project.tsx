@@ -7,7 +7,7 @@ export default function Project() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-14">
           <h2 className="text-5xl md:text-7xl font-Fugaz text-gray-900 tracking-tight">
-            Labubu
+            Projects
           </h2>
           <div className="h-px w-72 bg-linear-to-r from-gray-900 to-transparent"></div>
         </div>
