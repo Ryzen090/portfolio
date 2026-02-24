@@ -25,18 +25,17 @@ const projects = [
   {
     id: 1,
     title: "Svay Rieng Football Club",
-    image: "https://aavenir.com/wp-content/uploads/2022/03/DASHBOARD-2.jpg",
+    image: "/project/pkrsr.png",
     description:
-      "A full-featured online shopping platform with payment integration and real-time inventory.",
+      "A modern club management platform featuring match updates, team statistics.",
     tech: ["Next.js", "Ant Design"],
   },
   {
     id: 2,
     title: "NSSF Hospital Admin",
-    image:
-      "https://www.superoffice.com/globalassets/blog/2025/sales-dashboards/dashboard.png",
+    image: "/project/pkrsr.png",
     description:
-      "Mobile application for workout tracking, nutrition planning, and health monitoring.",
+      "Administrative system for healthcare operations, and streamlined service workflows.",
     tech: ["Angular", "Material UI"],
   },
 ];
