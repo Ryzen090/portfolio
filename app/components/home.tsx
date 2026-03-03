@@ -1,6 +1,7 @@
 "use client";
 
 import { Avatar } from "./view";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -26,6 +27,24 @@ export default function Home() {
       <div className="absolute bottom-0 left-0 w-full z-0 pointer-events-none">
         <Avatar />
       </div>
+
+      <motion.div
+        className="absolute bottom-26 left-1/2 -translate-x-1/2 z-20 hidden lg:block"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 1,
+          y: {
+            duration: 1,
+            repeat: Infinity,
+            repeatType: "reverse",
+          },
+        }}
+      >
+        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
+          <div className="w-1 h-2 bg-white/40 rounded-full mt-2" />
+        </div>
+      </motion.div>
     </main>
   );
 }

@@ -66,7 +66,7 @@ export default function Contact() {
                   ${social.hover}
                 `}
               >
-                <Icon className="w-6 h-6 md:w-7 md:h-7 group-hover:text-white transition-colors duration-300" />
+                <Icon className="w-6 h-6 md:w-7 md:h-7 text-black group-hover:text-white transition-colors duration-300" />
               </motion.a>
             );
           })}
