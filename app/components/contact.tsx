@@ -10,10 +10,33 @@ export default function Contact() {
   return (
     <section id="contact" className="relative w-full h-screen bg-orange-50">
       <div className="absolute top-20 left-2/9 transform -translate-x-1/2 z-50">
-        <h1 className="text-7xl font-Fugaz text-gray-900">
-          Let&apos;s work <br /> together!
-        </h1>
-        <div className="flex justify-center gap-6 mt-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <h1 className="text-5xl md:text-7xl font-Fugaz text-gray-900 leading-tight">
+                Let&apos;s work <br /> together!
+              </h1>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+          className="flex justify-center gap-4 md:gap-6 mt-8"
+        >
           {socialLinks.map((social, index) => {
             const Icon = social.icon;
 
@@ -26,23 +49,28 @@ export default function Contact() {
                 }
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                viewport={{ once: true }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: 5,
+                  transition: { type: "spring", stiffness: 400 },
+                }}
                 className={`
-                group w-10 h-10 rounded-2xl
-                flex items-center justify-center
-                bg-white shadow-md
-                transition-all duration-300
-                ${social.hover}
-              `}
+                  group w-12 h-12 md:w-14 md:h-14 rounded-2xl
+                  flex items-center justify-center
+                  bg-white shadow-md
+                  transition-all duration-300
+                  ${social.hover}
+                `}
               >
-                <Icon className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
+                <Icon className="w-6 h-6 md:w-7 md:h-7 group-hover:text-white transition-colors duration-300" />
               </motion.a>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
       <Canvas shadows camera={{ position: [5, 3.5, 8], fov: 45 }}>

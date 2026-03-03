@@ -40,4 +40,29 @@ const projects = [
   },
 ];
 
-export { socialLinks, projects };
+const experiences = [
+  {
+    year: "2024",
+    title: "Frontend Developer",
+    company: "Polygram Solution",
+    description: "Leading frontend architecture for enterprise applications",
+    achievements: [
+      "Redesigned core product",
+      "Mentored 3 juniors",
+      "Improved performance by 40%",
+    ],
+  },
+  {
+    year: "2022",
+    title: "Frontend Developer",
+    company: "Wonderpass Technology",
+    description: "Built responsive web applications for global clients",
+    achievements: [
+      "Delivered 10+ projects",
+      "Implemented design system",
+      "Reduced bugs by 60%",
+    ],
+  },
+];
+
+export { socialLinks, projects, experiences };
