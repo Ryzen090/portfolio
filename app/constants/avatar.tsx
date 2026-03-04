@@ -24,22 +24,6 @@ export default function AvatarViewer() {
           enablePan={false}
         />
       </Canvas>
-
-      <div
-        className="block absolute w-full h-60 bottom-0 left-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(15, 33, 69, 0) 0%, black 100%)",
-          pointerEvents: "none",
-        }}
-      ></div>
-      <div
-        className="absolute inset-0 z-5 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%)",
-        }}
-      ></div>
     </div>
   );
 }
