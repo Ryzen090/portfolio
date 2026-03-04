@@ -1,7 +1,7 @@
 "use client";
 
 import { Scene } from "./view";
-import { socialLinks } from "../data";
+import { SOCIAL } from "../data";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
@@ -37,7 +37,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="flex justify-center gap-4 md:gap-6 mt-8"
         >
-          {socialLinks.map((social, index) => {
+          {SOCIAL.map((social, index) => {
             const Icon = social.icon;
 
             return (

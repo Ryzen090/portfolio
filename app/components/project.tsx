@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "./utils/Image";
-import { projects } from "../data";
+import { PROJECTS } from "../data";
 
 export default function Project() {
   return (
@@ -12,8 +14,8 @@ export default function Project() {
           <div className="h-px w-72 bg-linear-to-r from-gray-900 to-transparent"></div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:gap-10">
-          {projects.map((project) => (
+        <div className="grid gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project) => (
             <article
               key={project.id}
               className="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
@@ -22,24 +24,24 @@ export default function Project() {
                 <Image
                   alt={project.title}
                   src={project.image}
-                  className="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-48 sm:h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
-              <div className="p-6">
-                <h3 className="mb-2 text-xl font-semibold text-gray-900 transition-colors group-hover:text-orange-600">
+              <div className="p-5">
+                <h3 className="mb-2 text-lg font-semibold text-gray-900 transition-colors group-hover:text-orange-600 line-clamp-1">
                   {project.title}
                 </h3>
 
-                <p className="mb-5 text-sm leading-relaxed text-gray-600">
+                <p className="mb-4 text-sm leading-relaxed text-gray-600 line-clamp-2">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((tech, index) => (
                     <span
                       key={index}
-                      className="rounded-md bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
+                      className="rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700"
                     >
                       {tech}
                     </span>

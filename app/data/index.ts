@@ -1,6 +1,6 @@
 import { Github, Linkedin, Send } from "lucide-react";
 
-const socialLinks = [
+const SOCIAL = [
   {
     icon: Github,
     href: "https://github.com/Ryzen090",
@@ -21,10 +21,10 @@ const socialLinks = [
   },
 ];
 
-const projects = [
+const PROJECTS = [
   {
     id: 1,
-    title: "Svay Rieng Football Club",
+    title: "Svay Rieng Football Club Admin",
     image: "/project/pkrsr.png",
     description:
       "A modern club management platform featuring match updates, team statistics.",
@@ -38,11 +38,19 @@ const projects = [
       "Administrative system for healthcare operations, and streamlined service workflows.",
     tech: ["Angular", "Material UI"],
   },
+  {
+    id: 3,
+    title: "NSSF Inspection Admin",
+    image: "/project/pkrsr.png",
+    description:
+      "Administrative system for healthcare operations, and streamlined service workflows.",
+    tech: ["Angular", "Material UI"],
+  },
 ];
 
-const experiences = [
+const EXPERIENCES: Experience[] = [
   {
-    year: "2024",
+    year: "2024-Present",
     title: "Frontend Developer",
     company: "Polygram Solution",
     description: "Leading frontend architecture for enterprise applications",
@@ -53,7 +61,7 @@ const experiences = [
     ],
   },
   {
-    year: "2022",
+    year: "2023-2024",
     title: "Frontend Developer",
     company: "Wonderpass Technology",
     description: "Built responsive web applications for global clients",
@@ -65,4 +73,4 @@ const experiences = [
   },
 ];
 
-export { socialLinks, projects, experiences };
+export { SOCIAL, PROJECTS, EXPERIENCES };
