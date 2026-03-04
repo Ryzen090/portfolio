@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "./utils/Image";
+import Image from "../utils/Image";
 import { PROJECTS } from "../data";
 
 export default function Project() {

@@ -1,7 +1,7 @@
 "use client";
 
-import { Scene } from "./view";
 import { SOCIAL } from "../data";
+import { Scene } from "../constants";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";

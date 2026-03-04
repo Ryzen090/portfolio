@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar } from "./view";
+import { Avatar } from "../constants";
 import { motion } from "framer-motion";
 
 export default function Home() {
