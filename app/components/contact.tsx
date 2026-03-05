@@ -1,92 +1,128 @@
 "use client";
 
+import { ReactNode } from "react";
 import { SOCIAL } from "../data";
-import { Scene } from "../constants";
 import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+
+interface BrutalistCardProps {
+  children: ReactNode;
+  className?: string;
+}
+
+const BrutalistCard = ({ children, className = "" }: BrutalistCardProps) => (
+  <div
+    className={`border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] ${className}`}
+  >
+    {children}
+  </div>
+);
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative w-full h-screen bg-orange-50">
-      <div className="absolute top-20 left-2/9 transform -translate-x-1/2 z-50">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-4xl mx-auto text-center">
+    <section
+      id="contact"
+      className="relative w-full min-h-screen bg-[#fafafa] text-black overflow-hidden border-t-12 border-black flex flex-col font-mono selection:bg-cyan-400"
+    >
+      <div className="flex-1 flex items-center justify-center p-6 md:p-12">
+        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-12">
             <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 100 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative"
             >
-              <h1 className="text-5xl md:text-7xl font-Fugaz text-gray-900 leading-tight">
-                Let&apos;s work <br /> together!
+              <h1 className="text-7xl md:text-9xl font-black uppercase leading-[0.75] tracking-tighter italic mb-8">
+                INITIATE <br />
+                <span className="text-pink-500">TOGETHER.</span>
               </h1>
             </motion.div>
-          </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          viewport={{ once: true }}
-          className="flex justify-center gap-4 md:gap-6 mt-8"
-        >
-          {SOCIAL.map((social, index) => {
-            const Icon = social.icon;
-
-            return (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target={
-                  social.href.startsWith("mailto:") ? undefined : "_blank"
-                }
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{
-                  scale: 1.1,
-                  rotate: 5,
-                  transition: { type: "spring", stiffness: 400 },
-                }}
-                className={`
-                  group w-12 h-12 md:w-14 md:h-14 rounded-2xl
-                  flex items-center justify-center
-                  bg-white shadow-md
-                  transition-all duration-300
-                  ${social.hover}
-                `}
+            <BrutalistCard className="rotate-2 hover:rotate-0 transition-transform duration-300">
+              <div className="flex items-center gap-2 mb-4 border-b-2 border-black pb-2 font-mono text-xs font-bold">
+                <span className="text-pink-500 animate-pulse">●</span> STATUS:
+                ACTIVE_DEVELOPER
+              </div>
+              <p className="font-mono text-sm leading-relaxed mb-6">
+                &gt; Based in the digital ether.
+                <br />
+                &gt; Specialized in React, TypeScript, and System Architecture.
+                <br />
+                &gt; Currently: Open for high-impact collaborations.
+              </p>
+              <motion.div
+                whileHover={{ scale: 0.98 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-black text-white p-4 font-black text-center cursor-pointer hover:bg-pink-500 transition-colors uppercase shadow-[4px_4px_0px_0px_#22d3ee]"
               >
-                <Icon className="w-6 h-6 md:w-7 md:h-7 text-black group-hover:text-white transition-colors duration-300" />
-              </motion.a>
-            );
-          })}
-        </motion.div>
+                Download Manifest
+              </motion.div>
+            </BrutalistCard>
+
+            <div className="hidden lg:block opacity-30 text-[10px] font-black uppercase tracking-widest leading-loose">
+              0x4F2A // SYNC: STABLE <br />
+              ENCRYPTION: AES_256 <br />
+              SIGNAL_ORIGIN: LOCALHOST
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-between items-end mb-4 border-b-4 border-black pb-2">
+              <span className="font-black text-xs uppercase italic tracking-widest">
+                Connect_Portals
+              </span>
+              <span className="text-[10px] font-bold opacity-40">
+                0x00_ROOT
+              </span>
+            </div>
+
+            {SOCIAL.map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target={
+                    social.href.startsWith("mailto:") ? undefined : "_blank"
+                  }
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ x: 12, backgroundColor: "#000", color: "#fff" }}
+                  className="bg-white border-4 border-black p-6 flex items-center justify-between group transition-all shadow-[6px_6px_0px_0px_#000] hover:shadow-none"
+                >
+                  <div className="flex items-center gap-6">
+                    <div className="w-12 h-12 border-2 border-black flex items-center justify-center bg-[#f0f0f0] group-hover:bg-white group-hover:rotate-12 transition-all">
+                      <Icon className="w-6 h-6 text-black" />
+                    </div>
+                    <span className="text-3xl font-black uppercase italic tracking-tighter">
+                      {social.label.split(" ")[0]}
+                    </span>
+                  </div>
+                  <div className="font-mono text-[10px] font-black opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400">
+                    OPEN_BRIDGE &gt;&gt;
+                  </div>
+                </motion.a>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      <Canvas shadows camera={{ position: [5, 3.5, 8], fov: 45 }}>
-        <ambientLight intensity={0.25} />
-        <directionalLight position={[5, 5, 5]} intensity={1.3} castShadow />
-        <directionalLight position={[-4, 2, 3]} intensity={0.4} />
-        <directionalLight position={[-6, 6, -4]} intensity={0.9} />
-
-        <Environment preset="city" />
-
-        <Scene
-          scale={0.5}
-          position={[2, -1.3, 1]}
-          rotation={[0, Math.PI - 0.2, 0]}
-        />
-      </Canvas>
+      <div className="w-full bg-black text-white py-3 px-8 flex justify-between items-center border-t-4 border-black">
+        <div className="flex gap-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="w-2 h-4 bg-white/20" />
+          ))}
+        </div>
+        <div className="text-[10px] font-black uppercase italic tracking-widest">
+          Ready_to_bridge_signal // 0x4F2A_009
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 bg-green-500 rounded-full" />
+          <span className="text-[9px] font-black uppercase">Secure</span>
+        </div>
+      </div>
     </section>
   );
 }

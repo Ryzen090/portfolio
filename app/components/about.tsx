@@ -1,398 +1,180 @@
 "use client";
 
-import Image from "next/image";
-import { EXPERIENCES } from "../data";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useMemo, useCallback, useEffect } from "react";
+import { useEffect } from "react";
+import Image from "../utils/Image";
+import { motion, useSpring, useMotionValue } from "framer-motion";
 
-const SKILLS: Skill[] = [
+const SKILLS = [
   {
     name: "Angular",
     icon: "/icon/angular.png",
-    color: "#DD0031",
-    category: "frontend",
-    experience: 3,
-    projects: 5,
-  },
-  {
-    name: "CSS",
-    icon: "/icon/css.png",
-    color: "#264DE4",
-    category: "frontend",
-    experience: 5,
+    level: 95,
     projects: 20,
   },
-  {
-    name: "HTML",
-    icon: "/icon/html.png",
-    color: "#E34F26",
-    category: "frontend",
-    experience: 5,
-    projects: 20,
-  },
+  { name: "CSS", icon: "/icon/css.png", level: 90, projects: 15 },
+  { name: "HTML", icon: "/icon/html.png", level: 88, projects: 12 },
   {
     name: "JavaScript",
     icon: "/icon/javascript.png",
-    color: "#F7DF1E",
-    category: "frontend",
-    experience: 5,
-    projects: 15,
+    level: 82,
+    projects: 10,
   },
-  {
-    name: "React",
-    icon: "/icon/react.png",
-    color: "#61DAFB",
-    category: "frontend",
-    experience: 4,
-    projects: 8,
-  },
+  { name: "React", icon: "/icon/react.png", level: 82, projects: 10 },
   {
     name: "Tailwind",
     icon: "/icon/tailwind.png",
-    color: "#38B2AC",
-    category: "frontend",
-    experience: 3,
+    level: 82,
     projects: 10,
   },
   {
-    name: "TypeScript",
+    name: "typescript",
     icon: "/icon/typescript.png",
-    color: "#3178C6",
-    category: "frontend",
-    experience: 4,
-    projects: 12,
+    level: 82,
+    projects: 10,
   },
-  {
-    name: "Vue",
-    icon: "/icon/vue.png",
-    color: "#4FC08D",
-    category: "frontend",
-    experience: 2,
-    projects: 3,
-  },
+  { name: "vue", icon: "/icon/vue.png", level: 82, projects: 10 },
 ];
 
-const CIRCLE_RADIUS = 220;
-const SKILL_CATEGORIES = ["frontend", "backend", "tools", "database"] as const;
-
-const fadeInScale = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1 },
-};
-
-const getCircularPosition = (
-  index: number,
-  total: number,
-  radius: number = CIRCLE_RADIUS,
-) => {
-  const angle = (index / total) * Math.PI * 2;
-  return {
-    x: Math.cos(angle) * radius,
-    y: Math.sin(angle) * radius,
-  };
-};
-
-const GlowingBackground = () => (
-  <div className="fixed inset-0 -z-10">
-    <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-    <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
-    <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+const PixelGrid = () => (
+  <div className="fixed inset-0 -z-10 pointer-events-none">
+    <div
+      className="absolute inset-0 opacity-[0.1]"
+      style={{
+        backgroundImage: `linear-gradient(#000 1px, transparent 1px), 
+                          linear-gradient(90deg, #000 1px, transparent 1px)`,
+        backgroundSize: "40px 40px",
+      }}
+    />
   </div>
 );
 
-const SectionBadge = ({ children }: { children: React.ReactNode }) => (
-  <motion.div
-    initial={{ opacity: 0, y: -20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="inline-block mb-6"
-  >
-    <span className="text-sm font-mono text-purple-600 bg-purple-600/10 px-4 py-2 rounded-full border border-purple-600/20">
-      {children}
-    </span>
-  </motion.div>
-);
-
-const SkillPulseRing = ({
-  color,
-  isActive,
-}: {
-  color: string;
-  isActive: boolean;
-}) => (
-  <>
-    {isActive && (
-      <>
-        <motion.div
-          animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="absolute inset-0 rounded-full"
-          style={{ boxShadow: `0 0 40px ${color}`, opacity: 0.2 }}
-        />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-          className="absolute inset-0 rounded-full"
-          style={{ boxShadow: `0 0 60px ${color}`, opacity: 0.1 }}
-        />
-      </>
-    )}
-  </>
-);
-
-const DesktopSkill = ({
-  skill,
-  isActive,
-  onHoverStart,
-  onHoverEnd,
-  position,
-}: {
-  skill: Skill;
-  isActive: boolean;
-  onHoverStart: () => void;
-  onHoverEnd: () => void;
-  position: { x: number; y: number };
-  index: number;
-  total: number;
-}) => {
-  return (
-    <motion.div
-      className="absolute left-1/2 top-1/2"
-      initial={{ x: position.x, y: position.y, opacity: 0, scale: 0 }}
-      animate={{
-        x: position.x,
-        y: position.y,
-        opacity: 1,
-        scale: 1,
-      }}
-      whileHover={{ scale: 1.3 }}
-      whileTap={{ scale: 0.9 }}
-      drag
-      dragElastic={0.1}
-      dragConstraints={{ left: -400, right: 400, top: -400, bottom: 400 }}
-      onHoverStart={() => {
-        onHoverStart();
-      }}
-      onHoverEnd={() => {
-        onHoverEnd();
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 50,
-        damping: 10,
-      }}
-    >
-      <div className="relative group cursor-pointer">
-        <SkillPulseRing color={skill.color} isActive={isActive} />
-
-        <div
-          className="relative w-20 h-20 rounded-2xl bg-linear-to-br from-black/80 to-black/60 backdrop-blur-xl border-2 p-5 shadow-2xl transition-all duration-300"
-          style={{
-            borderColor: isActive ? skill.color : "rgba(255,255,255,0.1)",
-            boxShadow: isActive ? `0 0 30px ${skill.color}` : "none",
-          }}
-        >
-          <Image
-            src={skill.icon}
-            alt={skill.name}
-            width={48}
-            height={48}
-            className="w-full h-full object-contain"
-            loading="lazy"
-          />
-        </div>
-
-        <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ boxShadow: `0 0 30px ${skill.color}` }}
-        />
-      </div>
-    </motion.div>
-  );
-};
-
-const MobileSkill = ({ skill, index }: { skill: Skill; index: number }) => (
-  <motion.div
-    variants={fadeInScale}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.05 }}
-    whileHover={{ scale: 1.05, y: -5 }}
-    className="flex flex-col items-center p-4 bg-linear-to-br from-black/40 to-black/20 backdrop-blur-sm border border-white/5 rounded-xl group cursor-pointer"
-  >
-    <div className="w-14 h-14 mb-3 relative">
-      <div
-        className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-        style={{ backgroundColor: skill.color }}
-      />
-      <Image
-        src={skill.icon}
-        alt={skill.name}
-        width={56}
-        height={56}
-        className="w-full h-full object-contain relative z-10"
-      />
-    </div>
-    <span className="text-sm font-medium text-white mb-1">{skill.name}</span>
-    <span className="text-xs text-gray-400">{skill.experience} yrs</span>
-  </motion.div>
-);
-
-const ExperienceItem = ({ exp, index }: { exp: Experience; index: number }) => (
-  <motion.div
-    initial={{ opacity: 0, x: -20 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ delay: index * 0.2 }}
-    viewport={{ once: true, margin: "-50px" }}
-    className="group relative pl-12"
-  >
-    <div className="absolute left-0 top-0 bottom-0 w-px bg-linear-to-b from-purple-600 via-blue-600 to-transparent" />
-
-    <div className="absolute -left-1 w-2 h-2 rounded-full bg-purple-600 group-hover:scale-150 transition-all duration-300" />
-
-    <div className="relative bg-black/30 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-purple-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/5">
-      <div className="text-sm text-purple-400 mb-2 font-mono">{exp.year}</div>
-
-      <h3 className="text-2xl font-bold mb-1 text-white group-hover:text-purple-400 transition-colors">
-        {exp.title}
-      </h3>
-
-      <div className="text-gray-400 mb-4 flex items-center gap-2">
-        <span>{exp.company}</span>
-        <span className="w-1 h-1 rounded-full bg-gray-600" />
-        <span>Full-Time</span>
-      </div>
-
-      <p className="text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
-
-      <div className="space-y-2">
-        {exp.achievements.map((achievement, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 + i * 0.05 }}
-            viewport={{ once: true }}
-            className="flex items-start gap-2 text-sm text-gray-400"
-          >
-            <span className="text-purple-400 mt-1">→</span>
-            <span>{achievement}</span>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </motion.div>
-);
-
-export default function About() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeSkill, setActiveSkill] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-
-  const skillPositions = useMemo(
-    () => SKILLS.map((_, i) => getCircularPosition(i, SKILLS.length)),
-    [],
-  );
-
-  const handleSkillHover = useCallback((name: string | null) => {
-    setActiveSkill(name);
-  }, []);
+export default function PortfolioPage() {
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
+  const springX = useSpring(mouseX, { stiffness: 500, damping: 28 });
+  const springY = useSpring(mouseY, { stiffness: 500, damping: 28 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      });
+    const handleMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX - 16);
+      mouseY.set(e.clientY - 16);
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, [mouseX, mouseY]);
 
   return (
-    <>
-      <GlowingBackground />
+    <main className="bg-[#f3f3f3] text-black min-h-screen selection:bg-pink-500 selection:text-white overflow-x-hidden font-sans">
+      <PixelGrid />
 
-      <div
-        ref={containerRef}
-        className="min-h-screen bg-black text-white overflow-hidden"
-      >
-        <div className="relative z-10 container mx-auto px-6 max-w-6xl py-20">
-          <motion.div style={{ opacity, scale }} className="text-center mb-32">
-            <SectionBadge>ABOUT ME</SectionBadge>
-          </motion.div>
+      <motion.div
+        style={{ x: springX, y: springY }}
+        className="fixed w-8 h-8 border-4 border-black bg-pink-500 pointer-events-none z-50 mix-blend-multiply hidden md:block"
+      />
 
-          <motion.div style={{ opacity }} className="relative mb-40">
+      <section className="py-24 px-6 max-w-7xl mx-auto border-black">
+        <header className="mb-24 flex items-start justify-between">
+          <div className="relative group">
+            <h2 className="text-9xl font-black uppercase tracking-tighter leading-[0.75]">
+              SYSTEM
+              <br />
+              <span className="text-pink-500 italic">CORES</span>
+            </h2>
+          </div>
+
+          <div className="hidden lg:block border-4 border-black p-4 bg-yellow-400 shadow-[4px_4px_0px_0px_#000] rotate-3 hover:rotate-0 transition-transform cursor-help">
+            <p className="font-mono text-[10px] font-black uppercase max-w-37.5">
+              Warning: High-level proficiency detected in 8+ modules. Proceed
+              with deployment.
+            </p>
+          </div>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {SKILLS.map((skill) => (
             <motion.div
-              className="relative h-125 hidden lg:block"
-              style={{
-                x: mousePosition.x,
-                y: mousePosition.y,
-              }}
+              key={skill.name}
+              whileHover={{ x: -4, y: -4 }}
+              className="relative group"
             >
-              {SKILLS.map((skill, index) => (
-                <DesktopSkill
-                  key={skill.name}
-                  skill={skill}
-                  isActive={activeSkill === skill.name}
-                  onHoverStart={() => handleSkillHover(skill.name)}
-                  onHoverEnd={() => handleSkillHover(null)}
-                  position={skillPositions[index]}
-                  index={index}
-                  total={SKILLS.length}
-                />
-              ))}
+              <div className="absolute inset-0 bg-pink-500 translate-x-2 translate-y-2 border-4 border-black" />
 
-              <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <div className="w-32 h-32 rounded-full bg-linear-to-r from-purple-600 to-blue-600 blur-3xl" />
-              </motion.div>
-            </motion.div>
-
-            <div className="lg:hidden">
-              {SKILL_CATEGORIES.map((category) => (
-                <div key={category} className="mb-8">
-                  <h3 className="text-lg font-semibold text-white mb-4 capitalize">
-                    {category}
-                  </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {SKILLS.filter((s) => s.category === category).map(
-                      (skill, index) => (
-                        <MobileSkill
-                          key={skill.name}
-                          skill={skill}
-                          index={index}
-                        />
-                      ),
-                    )}
+              <div className="relative border-4 border-black bg-white p-6 transition-all group-hover:bg-cyan-50">
+                <div className="flex justify-between items-center mb-8">
+                  <div className="w-16 h-16 border-2 border-black p-2 bg-white grayscale group-hover:grayscale-0 group-hover:rotate-12 transition-all duration-300">
+                    <Image alt={skill.name} src={skill.icon} />
+                  </div>
+                  <div className="text-right">
+                    <span className="block font-mono text-[10px] font-black uppercase leading-none">
+                      Proficiency
+                    </span>
+                    <span className="text-2xl font-black font-mono leading-none">
+                      {skill.level}%
+                    </span>
                   </div>
                 </div>
-              ))}
-            </div>
-          </motion.div>
-          <motion.div className="mb-40">
-            <div className="space-y-8">
-              {EXPERIENCES.map((exp, index) => (
-                <ExperienceItem key={exp.year} exp={exp} index={index} />
-              ))}
-            </div>
-          </motion.div>
+
+                <h3 className="text-3xl font-black uppercase mb-4 tracking-tighter group-hover:text-pink-500 transition-colors">
+                  {skill.name}
+                </h3>
+
+                <div className="relative w-full h-8 bg-black border-2 border-black overflow-hidden">
+                  <div
+                    className="absolute inset-0 opacity-20"
+                    style={{
+                      backgroundImage: `linear-gradient(45deg, #fff 25%, transparent 25%, transparent 50%, #fff 50%, #fff 75%, transparent 75%, transparent)`,
+                      backgroundSize: "10px 10px",
+                    }}
+                  />
+
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
+                    className="relative h-full bg-cyan-400 border-r-4 border-black flex items-center justify-end px-2"
+                  >
+                    <div className="absolute inset-0 bg-white/20 h-0.5 top-1/2 -translate-y-1/2" />
+                  </motion.div>
+                </div>
+
+                <div className="mt-4 flex justify-between font-mono text-[10px] font-black uppercase">
+                  <span>Core_Module</span>
+                  <span className="text-pink-500">v{skill.projects}.0</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
-    </>
+
+        <div className="mt-20 border-l-16 border-black pl-8 max-w-xl">
+          <p className="font-mono text-xs font-black uppercase italic leading-relaxed text-gray-500">
+            Technical modules verified for cross-platform integration. Core
+            architecture supports scalable micro-frontend deployments and
+            high-performance rendering.
+          </p>
+        </div>
+
+        <div className="mt-24 border-8 border-black p-10 bg-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-[12px_12px_0px_0px_#ec4899]">
+          <div className="text-5xl font-black uppercase italic leading-none max-w-xl">
+            High{" "}
+            <span className="text-cyan-400 underline decoration-black">
+              Precision
+            </span>{" "}
+            <br />
+            Technical Architecture.
+          </div>
+          <div className="flex flex-col items-end gap-2 text-right font-mono text-[10px] font-black uppercase">
+            <span>Build: Prod_V1.02</span>
+            <span>Env: Dark_Ether</span>
+            <div className="w-20 h-4 bg-black flex items-center px-1 gap-1">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="w-2 h-2 bg-white" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

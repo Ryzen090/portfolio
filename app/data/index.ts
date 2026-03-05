@@ -24,7 +24,7 @@ const SOCIAL = [
 const PROJECTS = [
   {
     id: 1,
-    title: "Svay Rieng Football Club Admin",
+    title: "Svay Rieng Football",
     image: "/project/pkrsr.png",
     description:
       "A modern club management platform featuring match updates, team statistics.",
