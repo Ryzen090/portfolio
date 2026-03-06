@@ -5,35 +5,34 @@ import { useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Home() {
-  const cursorX = useMotionValue(0);
-  const cursorY = useMotionValue(0);
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 700 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  const springConfig = { damping: 25, stiffness: 400 };
+  const xSpring = useSpring(cursorX, springConfig);
+  const ySpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
     window.addEventListener("mousemove", moveCursor);
     return () => window.removeEventListener("mousemove", moveCursor);
   }, [cursorX, cursorY]);
 
   return (
-    <>
+    <div className="bg-white min-h-screen selection:bg-black selection:text-white overflow-x-hidden">
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-50 mix-blend-difference hidden lg:block"
+        className="fixed top-0 left-0 w-8 h-8 border border-black rounded-full pointer-events-none z-100 hidden lg:block"
         style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
+          x: xSpring,
+          y: ySpring,
+          translateX: "-50%",
+          translateY: "-50%",
         }}
-      >
-        <div className="absolute inset-0 rounded-full border-2 border-white" />
-        <div className="absolute inset-0 rounded-full bg-purple-500/10 blur-[2px]" />
-      </motion.div>
+      />
       <Page />
-    </>
+    </div>
   );
 }
