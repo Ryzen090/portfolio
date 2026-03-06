@@ -1,4 +1,4 @@
-import Home from "./home";
+import Hero from "./hero";
 import About from "./about";
 import Project from "./project";
 import Contact from "./contact";
@@ -6,7 +6,7 @@ import Contact from "./contact";
 export default function Page() {
   return (
     <div>
-      <Home />
+      <Hero />
       <About />
       <Project />
       <Contact />

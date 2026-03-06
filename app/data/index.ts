@@ -25,7 +25,7 @@ const PROJECTS = [
   {
     id: 1,
     title: "Svay Rieng Football",
-    image: "/project/pkrsr.png",
+    image: "/pkrsr.png",
     description:
       "A modern club management platform featuring match updates, team statistics.",
     tech: ["Next.js", "Ant Design"],
@@ -33,7 +33,7 @@ const PROJECTS = [
   {
     id: 2,
     title: "NSSF Hospital Admin",
-    image: "/project/pkrsr.png",
+    image: "/pkrsr.png",
     description:
       "Administrative system for healthcare operations, and streamlined service workflows.",
     tech: ["Angular", "Material UI"],
@@ -41,7 +41,7 @@ const PROJECTS = [
   {
     id: 3,
     title: "NSSF Inspection Admin",
-    image: "/project/pkrsr.png",
+    image: "/pkrsr.png",
     description:
       "Administrative system for healthcare operations, and streamlined service workflows.",
     tech: ["Angular", "Material UI"],
