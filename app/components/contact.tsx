@@ -32,7 +32,7 @@ export default function Contact() {
               viewport={{ once: true }}
             >
               <h1 className="text-7xl md:text-9xl font-black uppercase leading-[0.75] tracking-tighter italic mb-8">
-                INITIATE <br />
+                LET&apos;S CREATE <br />
                 <span className="text-pink-500">TOGETHER.</span>
               </h1>
             </motion.div>
@@ -40,38 +40,40 @@ export default function Contact() {
             <BrutalistCard className="rotate-2 hover:rotate-0 transition-transform duration-300">
               <div className="flex items-center gap-2 mb-4 border-b-2 border-black pb-2 font-mono text-xs font-bold">
                 <span className="text-pink-500 animate-pulse">●</span> STATUS:
-                ACTIVE_DEVELOPER
+                OPEN_FOR_COLLABORATION
               </div>
               <p className="font-mono text-sm leading-relaxed mb-6">
-                &gt; Based in the digital ether.
+                &gt; Frontend Developer building modern web experiences.
                 <br />
-                &gt; Specialized in React, TypeScript, and System Architecture.
+                &gt; React, Angular, TypeScript specialist.
                 <br />
-                &gt; Currently: Open for high-impact collaborations.
+                &gt; Open for new opportunities and collaborations.
               </p>
-              <motion.div
-                whileHover={{ scale: 0.98 }}
+              <motion.a
+                download
+                href="/SAN_CHHAYLY.pdf"
                 whileTap={{ scale: 0.95 }}
-                className="bg-black text-white p-4 font-black text-center cursor-pointer hover:bg-pink-500 transition-colors uppercase shadow-[4px_4px_0px_0px_#22d3ee]"
+                whileHover={{ scale: 0.98 }}
+                className="block bg-black text-white p-4 font-black text-center cursor-pointer hover:bg-pink-500 transition-colors uppercase shadow-[4px_4px_0px_0px_#22d3ee]"
               >
-                Download Manifest
-              </motion.div>
+                Download Resume
+              </motion.a>
             </BrutalistCard>
 
             <div className="hidden lg:block opacity-30 text-[10px] font-black uppercase tracking-widest leading-loose">
-              0x4F2A // SYNC: STABLE <br />
-              ENCRYPTION: AES_256 <br />
-              SIGNAL_ORIGIN: LOCALHOST
+              SYSTEM: ONLINE <br />
+              DEPLOYMENT: STABLE <br />
+              LOCATION: PHNOM_PENH
             </div>
           </div>
 
           <div className="flex flex-col gap-4">
             <div className="flex justify-between items-end mb-4 border-b-4 border-black pb-2">
               <span className="font-black text-xs uppercase italic tracking-widest">
-                Connect_Portals
+                CONNECT_CHANNELS
               </span>
               <span className="text-[10px] font-bold opacity-40">
-                0x00_ROOT
+                CONTACT_NODE
               </span>
             </div>
 
@@ -100,7 +102,7 @@ export default function Contact() {
                     </span>
                   </div>
                   <div className="font-mono text-[10px] font-black opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400">
-                    OPEN_BRIDGE &gt;&gt;
+                    CONNECT &gt;&gt;
                   </div>
                 </motion.a>
               );
@@ -116,7 +118,7 @@ export default function Contact() {
           ))}
         </div>
         <div className="text-[10px] font-black uppercase italic tracking-widest">
-          Ready_to_bridge_signal // 0x4F2A_009
+          READY_FOR_COLLABORATION // SIGNAL_ACTIVE
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 bg-green-500 rounded-full" />

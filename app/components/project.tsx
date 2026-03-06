@@ -9,7 +9,7 @@ export default function Project() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto   text-black">
+    <section className="py-32 px-6 max-w-7xl mx-auto text-black">
       <header className="mb-24 relative flex flex-col md:flex-row justify-between items-end gap-12 border-b-2 border-black pb-16">
         <div className="relative group">
           <div className="absolute -top-12 left-0 bg-black text-white px-2 py-0.5 font-mono text-[10px] uppercase font-black italic">
