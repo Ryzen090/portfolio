@@ -1,6 +1,7 @@
 import { Github, Linkedin, Send } from "lucide-react";
+import { Experience, Project, Skill, SocialLink } from "../type";
 
-const SOCIAL = [
+const SOCIAL: SocialLink[] = [
   {
     icon: Github,
     href: "https://github.com/Ryzen090",
@@ -21,7 +22,7 @@ const SOCIAL = [
   },
 ];
 
-const PROJECTS = [
+const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Svay Rieng Football",
@@ -73,31 +74,15 @@ const EXPERIENCES: Experience[] = [
   },
 ];
 
-const SKILLS = [
+const SKILLS: Skill[] = [
   { name: "HTML", level: 88, projects: 12 },
   { name: "CSS", level: 90, projects: 15 },
-  {
-    name: "JavaScript",
-    level: 82,
-    projects: 10,
-  },
-  {
-    name: "typescript",
-    level: 82,
-    projects: 10,
-  },
-  {
-    name: "Tailwind",
-    level: 82,
-    projects: 10,
-  },
+  { name: "JavaScript", level: 82, projects: 10 },
+  { name: "TypeScript", level: 82, projects: 10 },
+  { name: "Tailwind", level: 82, projects: 10 },
   { name: "React", level: 82, projects: 10 },
-  {
-    name: "Angular",
-    level: 95,
-    projects: 20,
-  },
-  { name: "vue", level: 82, projects: 10 },
+  { name: "Angular", level: 95, projects: 20 },
+  { name: "Vue", level: 82, projects: 10 },
 ];
 
 export { SOCIAL, PROJECTS, EXPERIENCES, SKILLS };
