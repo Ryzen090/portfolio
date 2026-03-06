@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import {
   motion,
   useSpring,
@@ -8,37 +7,8 @@ import {
   useMotionValue,
   AnimatePresence,
 } from "framer-motion";
-
-const SKILLS = [
-  { name: "HTML", icon: "/icon/html.png", level: 88, projects: 12 },
-  { name: "CSS", icon: "/icon/css.png", level: 90, projects: 15 },
-  {
-    name: "JavaScript",
-    icon: "/icon/javascript.png",
-    level: 82,
-    projects: 10,
-  },
-  {
-    name: "typescript",
-    icon: "/icon/typescript.png",
-    level: 82,
-    projects: 10,
-  },
-  {
-    name: "Tailwind",
-    icon: "/icon/tailwind.png",
-    level: 82,
-    projects: 10,
-  },
-  { name: "React", icon: "/icon/react.png", level: 82, projects: 10 },
-  {
-    name: "Angular",
-    icon: "/icon/angular.png",
-    level: 95,
-    projects: 20,
-  },
-  { name: "vue", icon: "/icon/vue.png", level: 82, projects: 10 },
-];
+import { SKILLS } from "../data";
+import { useEffect } from "react";
 
 const PixelGrid = () => (
   <div className="fixed inset-0 -z-10 pointer-events-none">
