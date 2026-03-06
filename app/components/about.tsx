@@ -5,24 +5,11 @@ import Image from "../utils/Image";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 
 const SKILLS = [
-  {
-    name: "Angular",
-    icon: "/icon/angular.png",
-    level: 95,
-    projects: 20,
-  },
-  { name: "CSS", icon: "/icon/css.png", level: 90, projects: 15 },
   { name: "HTML", icon: "/icon/html.png", level: 88, projects: 12 },
+  { name: "CSS", icon: "/icon/css.png", level: 90, projects: 15 },
   {
     name: "JavaScript",
     icon: "/icon/javascript.png",
-    level: 82,
-    projects: 10,
-  },
-  { name: "React", icon: "/icon/react.png", level: 82, projects: 10 },
-  {
-    name: "Tailwind",
-    icon: "/icon/tailwind.png",
     level: 82,
     projects: 10,
   },
@@ -31,6 +18,19 @@ const SKILLS = [
     icon: "/icon/typescript.png",
     level: 82,
     projects: 10,
+  },
+  {
+    name: "Tailwind",
+    icon: "/icon/tailwind.png",
+    level: 82,
+    projects: 10,
+  },
+  { name: "React", icon: "/icon/react.png", level: 82, projects: 10 },
+  {
+    name: "Angular",
+    icon: "/icon/angular.png",
+    level: 95,
+    projects: 20,
   },
   { name: "vue", icon: "/icon/vue.png", level: 82, projects: 10 },
 ];
@@ -145,14 +145,6 @@ export default function PortfolioPage() {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-20 border-l-16 border-black pl-8 max-w-xl">
-          <p className="font-mono text-xs font-black uppercase italic leading-relaxed text-gray-500">
-            Technical modules verified for cross-platform integration. Core
-            architecture supports scalable micro-frontend deployments and
-            high-performance rendering.
-          </p>
         </div>
 
         <div className="mt-24 border-8 border-black p-10 bg-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-[12px_12px_0px_0px_#ec4899]">

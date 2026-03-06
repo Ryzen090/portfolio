@@ -99,6 +99,14 @@ export default function Project() {
           </AnimatePresence>
         </motion.div>
       </LayoutGroup>
+
+      <div className="mt-20 border-l-16 border-black pl-8 max-w-xl">
+        <p className="font-mono text-xs font-black uppercase italic leading-relaxed text-gray-500">
+          Technical modules verified for cross-platform integration. Core
+          architecture supports scalable micro-frontend deployments and
+          high-performance rendering.
+        </p>
+      </div>
     </section>
   );
 }
