@@ -13,14 +13,15 @@ export default function Project() {
       <header className="mb-24 relative flex flex-col md:flex-row justify-between items-end gap-12 border-b-2 border-black pb-16">
         <div className="relative group">
           <div className="absolute -top-12 left-0 bg-black text-white px-2 py-0.5 font-mono text-[10px] uppercase font-black italic">
-            Report_ID: #8829-X
+            System_Report: #8829-X
           </div>
           <h2 className="text-8xl font-black uppercase tracking-tighter leading-none italic">
-            PROJECTS
+            SYSTEM PROJECTS
           </h2>
           <p className="mt-4 font-mono text-xs font-bold max-w-sm border-l-4 border-cyan-400 pl-4">
-            Multi-threaded proficiency analysis. System stability verified
-            across modules.
+            A collection of production-ready projects built with modern frontend
+            technologies, focusing on performance, scalability, and clean
+            architecture.
           </p>
         </div>
 
@@ -102,9 +103,8 @@ export default function Project() {
 
       <div className="mt-20 border-l-16 border-black pl-8 max-w-xl">
         <p className="font-mono text-xs font-black uppercase italic leading-relaxed text-gray-500">
-          Technical modules verified for cross-platform integration. Core
-          architecture supports scalable micro-frontend deployments and
-          high-performance rendering.
+          Projects built with a focus on real-world usability, clean
+          architecture, and scalable frontend systems.
         </p>
       </div>
     </section>

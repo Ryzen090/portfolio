@@ -78,14 +78,14 @@ export default function PortfolioPage() {
             <h2 className="text-9xl font-black uppercase tracking-tighter leading-[0.75]">
               SYSTEM
               <br />
-              <span className="text-pink-500 italic">CORES</span>
+              <span className="text-pink-500 italic">CAPABILITIES</span>
             </h2>
           </div>
 
           <div className="hidden lg:block border-4 border-black p-4 bg-yellow-400 shadow-[4px_4px_0px_0px_#000] rotate-3 hover:rotate-0 transition-transform cursor-help">
             <p className="font-mono text-[10px] font-black uppercase max-w-37.5">
-              Warning: High-level proficiency detected in 8+ modules. Proceed
-              with deployment.
+              Profile Analysis: Experienced across multiple modern frontend
+              frameworks and technologies.
             </p>
           </div>
         </header>
@@ -149,16 +149,16 @@ export default function PortfolioPage() {
 
         <div className="mt-24 border-8 border-black p-10 bg-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-[12px_12px_0px_0px_#ec4899]">
           <div className="text-5xl font-black uppercase italic leading-none max-w-xl">
-            High{" "}
+            Precision
             <span className="text-cyan-400 underline decoration-black">
-              Precision
-            </span>{" "}
+              Built
+            </span>
             <br />
-            Technical Architecture.
+            Frontend Architecture.
           </div>
           <div className="flex flex-col items-end gap-2 text-right font-mono text-[10px] font-black uppercase">
-            <span>Build: Prod_V1.02</span>
-            <span>Env: Dark_Ether</span>
+            <span>Build: Portfolio_V1.0</span>
+            <span>Env: Frontend_Engineering</span>
             <div className="w-20 h-4 bg-black flex items-center px-1 gap-1">
               {[...Array(5)].map((_, i) => (
                 <div key={i} className="w-2 h-2 bg-white" />
