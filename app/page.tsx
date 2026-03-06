@@ -36,3 +36,40 @@ export default function Home() {
     </div>
   );
 }
+
+{
+  /* <div className="fixed inset-0 z-50 pointer-events-none border-[12px] md:border-[20px] border-black p-4 md:p-8 flex flex-col justify-between">
+  <div className="flex justify-between items-start">
+    <div className="bg-black text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest shadow-[6px_6px_0px_0px_#ec4899] pointer-events-auto">
+      System_Protocol: v.2.0.6
+    </div>
+    <div className="bg-white border-4 border-black p-2 shadow-[4px_4px_0px_0px_#000] text-[10px] font-black uppercase hidden md:block">
+      Loc: 11.5564° N / 104.9282° E
+    </div>
+  </div>
+  <div className="flex justify-between items-end">
+    <div className="flex flex-col gap-2">
+      <span className="text-[10px] font-black bg-black text-white px-2 py-0.5 w-fit">
+        CORE_UPTIME
+      </span>
+      <div className="flex gap-2">
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              delay: i * 0.2,
+            }}
+            className="w-4 h-4 border-2 border-black bg-pink-500"
+          />
+        ))}
+      </div>
+    </div>
+    <div className="bg-cyan-400 text-black px-6 py-2 text-xs font-[1000] uppercase italic border-4 border-black shadow-[6px_6px_0px_0px_#000]">
+      Ready_For_Deployment
+    </div>
+  </div>
+</div>; */
+}

@@ -101,7 +101,7 @@ export default function Contact() {
                       {social.label.split(" ")[0]}
                     </span>
                   </div>
-                  <div className="font-mono text-[10px] font-black opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400">
+                  <div className="font-mono text-[10px] font-black opacity-0 group-hover:opacity-100 transition-opacity text-pink-500">
                     CONNECT &gt;&gt;
                   </div>
                 </motion.a>
