@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "../utils/Image";
-import { motion, useSpring, useMotionValue } from "framer-motion";
+import {
+  motion,
+  useSpring,
+  LayoutGroup,
+  useMotionValue,
+  AnimatePresence,
+} from "framer-motion";
 
 const SKILLS = [
   { name: "HTML", icon: "/icon/html.png", level: 88, projects: 12 },
@@ -90,62 +95,94 @@ export default function PortfolioPage() {
           </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {SKILLS.map((skill) => (
-            <motion.div
-              key={skill.name}
-              whileHover={{ x: -4, y: -4 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-pink-500 translate-x-2 translate-y-2 border-4 border-black" />
+        <LayoutGroup>
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 p-4 md:p-10"
+          >
+            <AnimatePresence mode="popLayout">
+              {SKILLS.map((skill) => (
+                <motion.div
+                  key={skill.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -10 }}
+                  className="relative group"
+                >
+                  <div className="absolute inset-0 bg-black translate-x-2 translate-y-2 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-200" />
 
-              <div className="relative border-4 border-black bg-white p-6 transition-all group-hover:bg-cyan-50">
-                <div className="flex justify-between items-center mb-8">
-                  <div className="w-16 h-16 border-2 border-black p-2 bg-white grayscale group-hover:grayscale-0 group-hover:rotate-12 transition-all duration-300">
-                    <Image alt={skill.name} src={skill.icon} />
+                  <div className="relative bg-white border-4 border-black p-6 flex flex-col min-h-80 z-10">
+                    <div className="flex justify-between items-center mb-6 border-b-2 border-black/10 pb-2">
+                      <span className="font-mono text-[9px] font-black bg-black text-white px-1.5 py-0.5">
+                        NODE::{skill.name.substring(0, 3).toUpperCase()}
+                      </span>
+                      <div className="flex gap-1">
+                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                        <div className="w-1.5 h-1.5 bg-black/20 rounded-full" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-4xl font-black uppercase italic tracking-tighter leading-none mb-2 group-hover:text-pink-500 transition-colors">
+                      {skill.name}
+                    </h3>
+                    <p className="text-[10px] font-mono font-bold opacity-40 uppercase mb-8">
+                      Technical_Capability_Matrix
+                    </p>
+
+                    <div className="mt-auto space-y-4">
+                      <div className="flex justify-between items-end">
+                        <span className="font-mono text-[10px] font-black uppercase text-cyan-500">
+                          Power_Level
+                        </span>
+                        <span className="text-4xl font-black leading-none tracking-tighter">
+                          {skill.level}%
+                        </span>
+                      </div>
+
+                      <div className="h-10 w-full border-4 border-black bg-black relative p-1">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1.5, ease: "circOut" }}
+                          className="h-full bg-pink-500 flex items-center justify-end overflow-hidden"
+                        >
+                          <div
+                            className="w-full h-full opacity-30 bg-[linear-gradient(90deg,transparent_0%,#fff_50%,transparent_100%)] bg-size-[200%_100%] animate-[shimmer_2s_infinite]"
+                            style={{
+                              backgroundImage:
+                                "repeating-linear-gradient(90deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 10px)",
+                            }}
+                          />
+                        </motion.div>
+                      </div>
+
+                      <div className="grid grid-cols-2 border-t-4 border-black pt-2 mt-4">
+                        <div className="border-r-2 border-black/20">
+                          <p className="text-[8px] font-black opacity-40 uppercase">
+                            Deployments
+                          </p>
+                          <p className="font-mono text-xs font-black">
+                            {skill.projects}+
+                          </p>
+                        </div>
+                        <div className="pl-4">
+                          <p className="text-[8px] font-black opacity-40 uppercase">
+                            Module
+                          </p>
+                          <p className="font-mono text-xs font-black">STABLE</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-0 right-0 w-0 h-0 border-t-20 border-t-transparent border-r-20 border-r-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <div className="text-right">
-                    <span className="block font-mono text-[10px] font-black uppercase leading-none">
-                      Proficiency
-                    </span>
-                    <span className="text-2xl font-black font-mono leading-none">
-                      {skill.level}%
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="text-3xl font-black uppercase mb-4 tracking-tighter group-hover:text-pink-500 transition-colors">
-                  {skill.name}
-                </h3>
-
-                <div className="relative w-full h-8 bg-black border-2 border-black overflow-hidden">
-                  <div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                      backgroundImage: `linear-gradient(45deg, #fff 25%, transparent 25%, transparent 50%, #fff 50%, #fff 75%, transparent 75%, transparent)`,
-                      backgroundSize: "10px 10px",
-                    }}
-                  />
-
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
-                    className="relative h-full bg-cyan-400 border-r-4 border-black flex items-center justify-end px-2"
-                  >
-                    <div className="absolute inset-0 bg-white/20 h-0.5 top-1/2 -translate-y-1/2" />
-                  </motion.div>
-                </div>
-
-                <div className="mt-4 flex justify-between font-mono text-[10px] font-black uppercase">
-                  <span>Core_Module</span>
-                  <span className="text-pink-500">v{skill.projects}.0</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </LayoutGroup>
 
         <div className="mt-24 border-8 border-black p-10 bg-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-[12px_12px_0px_0px_#ec4899]">
           <div className="text-5xl font-black uppercase italic leading-none max-w-xl">
