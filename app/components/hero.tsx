@@ -4,53 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <main className="relative min-h-screen w-full bg-[#fafafa] overflow-hidden flex flex-col font-mono selection:bg-cyan-400">
-      <div className="absolute inset-0 z-50 pointer-events-none border-16 border-black flex flex-col justify-between p-6">
-        <div className="flex justify-between items-start">
-          <div className="bg-black text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_#ec4899]">
-            System_Protocol: v.2.0.6
-          </div>
-          <div className="text-black text-[10px] font-black text-right uppercase bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            Status: Active <br />
-            Auth: Admin_Chhayly
-          </div>
-        </div>
-
-        <div className="flex justify-between items-end">
-          <div className="bg-black text-white p-4 border-2 border-white outline outline-black">
-            <p className="text-[10px] font-black mb-2 uppercase">
-              Core_Metrics
-            </p>
-            <div className="flex gap-1">
-              {[40, 70, 45, 90, 65].map((h, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ height: 0 }}
-                  animate={{ height: h / 4 }}
-                  className="w-2 bg-cyan-400"
-                />
-              ))}
-            </div>
-          </div>
-          <div className="bg-pink-500 text-black px-4 py-2 text-xs font-[1000] uppercase italic border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            Ready_For_Deployment
-          </div>
-        </div>
-      </div>
-
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none">
-          <div className="text-[60vh] font-black">X</div>
-        </div>
-      </div>
-
+    <main className="relative min-h-screen w-full overflow-hidden flex flex-col font-mono selection:bg-cyan-400">
       <section className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 border-2 border-dashed border-black/10 rounded-full animate-spin-slow pointer-events-none" />
 

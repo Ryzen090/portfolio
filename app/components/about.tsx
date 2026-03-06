@@ -23,7 +23,7 @@ const PixelGrid = () => (
   </div>
 );
 
-export default function PortfolioPage() {
+export default function About() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
   const springX = useSpring(mouseX, { stiffness: 500, damping: 28 });
@@ -39,7 +39,7 @@ export default function PortfolioPage() {
   }, [mouseX, mouseY]);
 
   return (
-    <main className="bg-[#f3f3f3] text-black min-h-screen selection:bg-pink-500 selection:text-white overflow-x-hidden font-sans">
+    <main className="bg-white border-y-12 border-black text-black min-h-screen selection:bg-pink-500 selection:text-white overflow-x-hidden font-sans">
       <PixelGrid />
 
       <motion.div

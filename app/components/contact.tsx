@@ -110,21 +110,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      <div className="w-full bg-black text-white py-3 px-8 flex justify-between items-center border-t-4 border-black">
-        <div className="flex gap-4">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="w-2 h-4 bg-white/20" />
-          ))}
-        </div>
-        <div className="text-[10px] font-black uppercase italic tracking-widest">
-          READY_FOR_COLLABORATION // SIGNAL_ACTIVE
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 bg-green-500 rounded-full" />
-          <span className="text-[9px] font-black uppercase">Secure</span>
-        </div>
-      </div>
     </section>
   );
 }
