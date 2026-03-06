@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface SocialLink {
   icon: React.ElementType;
   href: string;
@@ -15,14 +17,48 @@ export interface Project {
 
 export interface Experience {
   year: string;
-  title: string;
+  end: string;
+  event: string;
   company: string;
-  description: string;
-  achievements: string[];
+  technologies: string[];
 }
 
 export interface Skill {
   name: string;
   level: number;
   projects: number;
+  years: string;
+  endorsements: string;
+  category: string;
+}
+
+export interface Tool {
+  name: string;
+  icon: string | React.ReactNode;
+}
+
+export interface Certification {
+  name: string;
+  title: string;
+  year: string;
+}
+
+export interface Testimonial {
+  avatar: string;
+  author: string;
+  role: string;
+  company: string;
+  text: string;
+}
+
+export type TabId =
+  | "skills"
+  | "Experiences"
+  | "certifications"
+  | "tools"
+  | "testimonials";
+
+export interface TAB {
+  id: TabId;
+  label: string;
 }

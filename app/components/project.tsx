@@ -9,16 +9,16 @@ export default function Project() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto text-black">
-      <header className="mb-24 relative flex flex-col md:flex-row justify-between items-end gap-12 border-b-2 border-black pb-16">
+    <section className="py-32 px-6 max-w-7xl mx-auto text-[#0B1C2F]">
+      <header className="mb-24 relative flex flex-col md:flex-row justify-between items-end gap-12 border-b-2 border-[#0B1C2F] pb-16">
         <div className="relative group">
-          <div className="absolute -top-12 left-0 bg-black text-white px-2 py-0.5 font-mono text-[10px] uppercase font-black italic">
+          <div className="absolute -top-12 left-0 bg-[#0B1C2F] text-[#FFD966] px-2 py-0.5 font-mono text-[10px] uppercase font-black italic">
             System_Report: #8829-X
           </div>
           <h2 className="text-8xl font-black uppercase tracking-tighter leading-none italic">
             SYSTEM PROJECTS
           </h2>
-          <p className="mt-4 font-mono text-xs font-bold max-w-sm border-l-4 border-cyan-400 pl-4">
+          <p className="mt-4 font-mono text-xs font-bold max-w-sm border-l-4 border-[#2E8B57] pl-4">
             A collection of production-ready projects built with modern frontend
             technologies, focusing on performance, scalability, and clean
             architecture.
@@ -28,13 +28,13 @@ export default function Project() {
         <div className="flex gap-2 font-mono text-xs">
           <button
             onClick={() => setViewMode("grid")}
-            className={`px-4 py-1 border-2 border-black ${viewMode === "grid" ? "bg-black text-white" : ""}`}
+            className={`px-4 py-1 border-2 border-[#0B1C2F] ${viewMode === "grid" ? "bg-[#0B1C2F] text-[#FFD966]" : ""}`}
           >
             GRID
           </button>
           <button
             onClick={() => setViewMode("list")}
-            className={`px-4 py-1 border-2 border-black ${viewMode === "list" ? "bg-black text-white" : ""}`}
+            className={`px-4 py-1 border-2 border-[#0B1C2F] ${viewMode === "list" ? "bg-[#0B1C2F] text-[#FFD966]" : ""}`}
           >
             LIST
           </button>
@@ -58,14 +58,14 @@ export default function Project() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className={`border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_#000] hover:shadow-[12px_12px_0px_0px_#ec4899] transition-all group ${
+                className={`border-4 border-[#0B1C2F] p-6 bg-white shadow-[8px_8px_0px_0px_#0B1C2F] hover:shadow-[12px_12px_0px_0px_#E23636] transition-all group ${
                   viewMode === "list" ? "flex items-center gap-6 py-4" : ""
                 }`}
               >
                 <div
-                  className={`${viewMode === "grid" ? "h-48 w-full mb-6" : "h-16 w-16"} bg-gray-200 border-2 border-black overflow-hidden relative`}
+                  className={`${viewMode === "grid" ? "h-48 w-full mb-6" : "h-16 w-16"} bg-gray-200 border-2 border-[#0B1C2F] overflow-hidden relative`}
                 >
-                  <div className="absolute inset-0 bg-cyan-500 opacity-0 group-hover:opacity-20 transition-opacity" />
+                  <div className="absolute inset-0 bg-[#FFD966] opacity-0 group-hover:opacity-20 transition-opacity" />
                   <div className="flex items-center justify-center h-full font-black text-gray-400">
                     <Image
                       alt={project.title}
@@ -76,7 +76,7 @@ export default function Project() {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-3xl font-black uppercase mb-2 group-hover:text-pink-500 transition-colors">
+                  <h3 className="text-3xl font-black uppercase mb-2 group-hover:text-[#E23636] transition-colors">
                     {project.title}
                   </h3>
                   {viewMode === "grid" && (
@@ -88,7 +88,7 @@ export default function Project() {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 border border-black text-[10px] font-bold"
+                        className="px-2 py-0.5 border border-[#0B1C2F] text-[10px] font-bold"
                       >
                         {t}
                       </span>
@@ -101,7 +101,7 @@ export default function Project() {
         </motion.div>
       </LayoutGroup>
 
-      <div className="mt-20 border-l-16 border-black pl-8 max-w-xl">
+      <div className="mt-20 border-l-16 border-[#0B1C2F] pl-8 max-w-xl">
         <p className="font-mono text-xs font-black uppercase italic leading-relaxed text-gray-500">
           Projects built with a focus on real-world usability, clean
           architecture, and scalable frontend systems.
