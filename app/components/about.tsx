@@ -3,7 +3,7 @@
 import {
   TABS,
   TOOLS,
-  SKILLS,
+  TECHNOLOGY,
   EXPERIENCES,
   TESTIMONIALS,
   CERTIFICATIONS,
@@ -65,7 +65,7 @@ export default function About() {
     return () => clearInterval(interval);
   }, []);
 
-  const filteredSkills: Technology[] = SKILLS;
+  const technology: Technology[] = TECHNOLOGY;
 
   return (
     <main
@@ -125,8 +125,8 @@ export default function About() {
                 layout
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                {filteredSkills.map((skill) => (
-                  <Technologies key={skill.name} tech={skill} />
+                {technology.map((tech) => (
+                  <Technologies key={tech.name} tech={tech} />
                 ))}
               </motion.div>
             </LayoutGroup>

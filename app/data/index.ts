@@ -75,38 +75,38 @@ export const EXPERIENCES: Experience[] = [
   },
 ];
 
-export const SKILLS: Technology[] = [
+export const TECHNOLOGY: Technology[] = [
   {
     name: "HTML",
-    image: "🌐",
+    image: "/icon/html.png",
   },
   {
     name: "CSS",
-    image: "🎨",
+    image: "/icon/css.png",
   },
   {
     name: "JavaScript",
-    image: "⚡",
+    image: "/icon/javascript.png",
   },
   {
     name: "TypeScript",
-    image: "📘",
+    image: "/icon/typescript.png",
   },
   {
     name: "Tailwind",
-    image: "🌊",
+    image: "/icon/tailwind.png",
   },
   {
     name: "React",
-    image: "⚛️",
+    image: "/icon/react.png",
   },
   {
     name: "Angular",
-    image: "🅰️",
+    image: "/icon/angular.png",
   },
   {
     name: "Vue",
-    image: "💚",
+    image: "/icon/vue.png",
   },
 ];
 

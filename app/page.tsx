@@ -43,7 +43,7 @@ export default function Home() {
           <div className="bg-[#0B1C2F] text-[#FFD966] px-4 py-2 text-[10px] font-black uppercase tracking-widest shadow-[6px_6px_0px_0px_#E23636] pointer-events-auto">
             System_Protocol: v.2.0.6
           </div>
-          <div className="text-[#0B1C2F] text-[10px] font-black text-right uppercase bg-white border-2 border-[#0B1C2F] p-2 shadow-[4px_4px_0px_0px_#E23636]">
+          <div className="text-[#0B1C2F] text-[10px] font-black text-right uppercase bg-white border-2 border-[#0B1C2F] p-2 shadow-[4px_4px_0px_0px_#E23636] pointer-events-auto">
             Status: Active <br />
             Auth: Admin_Chhayly
           </div>
@@ -69,18 +69,19 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <motion.button
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-8 right-8 w-12 h-12 bg-[#E03A3C] border-4 border-[#0A1A2F] text-white font-black text-xl shadow-[4px_4px_0px_0px_#0A1A2F] z-50 hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
-          >
-            ↑
-          </motion.button>
         </div>
       </div>
+
+      <motion.button
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-8 right-8 w-12 h-12 bg-[#E03A3C] border-4 border-[#0A1A2F] text-white font-black text-xl shadow-[4px_4px_0px_0px_#0A1A2F] z-50 hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer"
+      >
+        ↑
+      </motion.button>
 
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 border-2 border-[#E23636] rounded-full pointer-events-none z-100 hidden lg:block"

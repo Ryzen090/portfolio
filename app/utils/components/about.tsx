@@ -5,6 +5,7 @@ import {
   Certification,
   Technology,
 } from "@/app/type";
+import Image from "../Image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Technologies = ({ tech }: { tech: Technology }) => (
@@ -24,12 +25,14 @@ export const Technologies = ({ tech }: { tech: Technology }) => (
     <div className="absolute inset-0 bg-[#E03A3C] rounded-lg -rotate-1 group-hover:-rotate-2 transition-transform" />
 
     <div
-      className={`relative bg-white border-4 border-[#0A1A2F] rounded-lg transform -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform p-6`}
+      className={`relative bg-[#FDF5E6] border-4 border-[#0A1A2F] rounded-lg transform -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform p-6`}
     >
-      <div
-        className={`w-20 h-20 mx-auto mb-3 bg-[#0A1A2F] rounded-full border-4 border-[#E03A3C] flex items-center justify-center text-3xl`}
-      >
-        {tech.image}
+      <div className="w-20 h-20 mx-auto mb-3 bg-[#f5f2ec] rounded-full border-4 border-[#E03A3C] flex items-center justify-center text-3xl">
+        <Image
+          src={tech.image}
+          alt={tech.name}
+          className="w-12 h-12 object-contain"
+        />
       </div>
 
       <div className="flex-1 text-center">
@@ -91,7 +94,7 @@ export const Experiences = ({
           <div className="relative z-10 flex flex-col items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-[#E03A3C] rotate-3 group-hover:rotate-6 transition-transform" />
-              <div className="relative bg-white border-4 border-[#0A1A2F] px-6 py-3">
+              <div className="relative bg-[#f4f0e9] border-4 border-[#0A1A2F] px-6 py-3">
                 <span className="text-3xl font-black">{item.year}</span>
               </div>
             </div>
@@ -108,7 +111,7 @@ export const Experiences = ({
             <div className="absolute inset-0 bg-[#0A1A2F] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform" />
             <div className="absolute inset-0 bg-[#E03A3C] translate-x-2 translate-y-2 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform" />
 
-            <div className="relative bg-white border-4 border-[#0A1A2F] p-8">
+            <div className="relative bg-[#f4f0e9] border-4 border-[#0A1A2F] p-8">
               <div className="absolute -top-4 -right-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#2E8B57] rotate-2 group-hover:rotate-3 transition-transform" />
