@@ -2,10 +2,10 @@ import { Github, Linkedin, Send } from "lucide-react";
 import {
   TAB,
   Tool,
-  Skill,
   Project,
   Experience,
   SocialLink,
+  Technology,
   Testimonial,
   Certification,
 } from "../type";
@@ -75,70 +75,38 @@ export const EXPERIENCES: Experience[] = [
   },
 ];
 
-export const SKILLS: Skill[] = [
+export const SKILLS: Technology[] = [
   {
     name: "HTML",
-    level: 88,
-    projects: 12,
-    years: "3",
-    endorsements: "10",
-    category: "frontend",
+    image: "🌐",
   },
   {
     name: "CSS",
-    level: 90,
-    projects: 15,
-    years: "3",
-    endorsements: "12",
-    category: "frontend",
+    image: "🎨",
   },
   {
     name: "JavaScript",
-    level: 82,
-    projects: 10,
-    years: "3",
-    endorsements: "8",
-    category: "frontend",
+    image: "⚡",
   },
   {
     name: "TypeScript",
-    level: 82,
-    projects: 10,
-    years: "2",
-    endorsements: "6",
-    category: "frontend",
+    image: "📘",
   },
   {
     name: "Tailwind",
-    level: 82,
-    projects: 10,
-    years: "2",
-    endorsements: "6",
-    category: "frontend",
+    image: "🌊",
   },
   {
     name: "React",
-    level: 82,
-    projects: 10,
-    years: "2",
-    endorsements: "6",
-    category: "frontend",
+    image: "⚛️",
   },
   {
     name: "Angular",
-    level: 95,
-    projects: 20,
-    years: "3",
-    endorsements: "20",
-    category: "frontend",
+    image: "🅰️",
   },
   {
     name: "Vue",
-    level: 82,
-    projects: 10,
-    years: "1",
-    endorsements: "5",
-    category: "frontend",
+    image: "💚",
   },
 ];
 
@@ -182,9 +150,9 @@ export const TOOLS: Tool[] = [
 ];
 
 export const TABS: TAB[] = [
-  { id: "skills", label: "SKILLS" },
-  { id: "Experiences", label: "EXPERIENCES" },
+  { id: "experiences", label: "EXPERIENCES" },
   { id: "certifications", label: "CERTIFICATIONS" },
+  { id: "technologies", label: "TECHNOLOGIES" },
   { id: "tools", label: "TOOLS" },
   { id: "testimonials", label: "TESTIMONIALS" },
 ];

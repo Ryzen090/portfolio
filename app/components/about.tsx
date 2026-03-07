@@ -17,12 +17,12 @@ import {
 } from "framer-motion";
 import {
   Tools,
-  Skills,
   Experiences,
   Testimonials,
   Certifications,
+  Technologies,
 } from "../utils/components/about";
-import { Skill, TabId } from "../type";
+import { TabId, Technology } from "../type";
 import { useEffect, useState, useRef } from "react";
 
 const PixelGrid = () => (
@@ -45,9 +45,8 @@ export default function About() {
   const springY = useSpring(mouseY, { stiffness: 500, damping: 28 });
 
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [activeTab, setActiveTab] = useState<TabId>("skills");
+  const [activeTab, setActiveTab] = useState<TabId>("experiences");
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
   const [selectedTimeline, setSelectedTimeline] = useState<number | null>(null);
 
   useEffect(() => {
@@ -66,7 +65,7 @@ export default function About() {
     return () => clearInterval(interval);
   }, []);
 
-  const filteredSkills: Skill[] = SKILLS;
+  const filteredSkills: Technology[] = SKILLS;
 
   return (
     <main
@@ -90,7 +89,7 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="hidden lg:block border-4 border-[#0B1C2F] p-4 bg-[#FFD966] shadow-[4px_4px_0px_0px_#2E8B57] rotate-3 hover:rotate-0 transition-transform cursor-help">
+          <div className="hidden lg:block border-4 border-[#0B1C2F] p-4 bg-[#FFD966] shadow-[4px_4px_0px_0px_#E23636] rotate-3 hover:rotate-0 transition-transform cursor-help">
             <p className="font-mono text-[10px] font-black uppercase max-w-37.5">
               Profile Analysis: Experienced across multiple modern frontend
               frameworks and technologies.
@@ -120,30 +119,20 @@ export default function About() {
         </motion.div>
 
         <AnimatePresence mode="wait">
-          {activeTab === "skills" && (
+          {activeTab === "technologies" && (
             <LayoutGroup>
               <motion.div
                 layout
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
                 {filteredSkills.map((skill) => (
-                  <Skills
-                    key={skill.name}
-                    skill={skill}
-                    isSelected={selectedSkill === skill.name}
-                    onSelect={() =>
-                      setSelectedSkill(
-                        selectedSkill === skill.name ? null : skill.name,
-                      )
-                    }
-                    viewMode="grid"
-                  />
+                  <Technologies key={skill.name} tech={skill} />
                 ))}
               </motion.div>
             </LayoutGroup>
           )}
 
-          {activeTab === "Experiences" && (
+          {activeTab === "experiences" && (
             <Experiences
               items={EXPERIENCES}
               selectedItem={selectedTimeline}

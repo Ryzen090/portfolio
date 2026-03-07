@@ -23,13 +23,9 @@ export interface Experience {
   technologies: string[];
 }
 
-export interface Skill {
+export interface Technology {
   name: string;
-  level: number;
-  projects: number;
-  years: string;
-  endorsements: string;
-  category: string;
+  image: string;
 }
 
 export interface Tool {
@@ -52,8 +48,8 @@ export interface Testimonial {
 }
 
 export type TabId =
-  | "skills"
-  | "Experiences"
+  | "technologies"
+  | "experiences"
   | "certifications"
   | "tools"
   | "testimonials";
