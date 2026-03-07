@@ -30,7 +30,7 @@ export interface Technology {
 
 export interface Tool {
   name: string;
-  icon: string | React.ReactNode;
+  image: string;
 }
 
 export interface Certification {

@@ -326,14 +326,8 @@ export const Tools = ({ items }: { items: Tool[] }) => (
 
         <div className="relative bg-white border-4 border-[#0A1A2F] p-4">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#F7D44A] border-4 border-[#E03A3C] flex items-center justify-center shrink-0">
-              {typeof tool.icon === "string" ? (
-                <span className="text-2xl">{tool.icon}</span>
-              ) : (
-                <div className="w-6 h-6 [&>svg]:w-full [&>svg]:h-full">
-                  {tool.icon}
-                </div>
-              )}
+            <div className="w-12 h-12  flex items-center justify-center shrink-0">
+              <Image src={tool.image} alt={tool.name} />
             </div>
 
             <div className="flex-1">

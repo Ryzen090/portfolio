@@ -80,20 +80,31 @@ export default function About() {
       />
 
       <section className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
-        <header className="mb-24 flex items-start justify-between">
-          <div className="relative group">
-            <h2 className="text-9xl font-black uppercase tracking-tighter leading-[0.75]">
+        <header className="mb-16 md:mb-24 flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12">
+          <div className="relative group w-full lg:w-auto">
+            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.75]">
               SYSTEM
               <br />
-              <span className="text-[#E23636] italic">CAPABILITIES</span>
+              <span className="text-[#E03A3C] italic">CAPABILITIES</span>
             </h2>
           </div>
 
-          <div className="hidden lg:block border-4 border-[#0B1C2F] p-4 bg-[#FFD966] shadow-[4px_4px_0px_0px_#E23636] rotate-3 hover:rotate-0 transition-transform cursor-help">
-            <p className="font-mono text-[10px] font-black uppercase max-w-37.5">
-              Profile Analysis: Experienced across multiple modern frontend
-              frameworks and technologies.
-            </p>
+          <div className="hidden lg:block w-full lg:w-auto max-w-md">
+            <div className="border-4 border-[#0A1A2F] p-4 bg-[#F7D44A] shadow-[4px_4px_0px_0px_#E03A3C] rotate-3 hover:rotate-0 transition-transform cursor-help">
+              <p className="font-mono text-[10px] font-black uppercase">
+                Profile Analysis: Experienced across multiple modern frontend
+                frameworks and technologies.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:hidden w-full">
+            <div className="border-4 border-[#0A1A2F] p-4 bg-[#F7D44A] shadow-[4px_4px_0px_0px_#E03A3C] hover:rotate-0 transition-transform cursor-help">
+              <p className="font-mono text-[10px] font-black uppercase text-center">
+                Experienced across multiple modern frontend frameworks and
+                technologies.
+              </p>
+            </div>
           </div>
         </header>
 

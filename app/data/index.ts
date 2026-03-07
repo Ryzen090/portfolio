@@ -141,12 +141,12 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const TOOLS: Tool[] = [
-  { name: "VS Code", icon: "💻" },
-  { name: "Git", icon: "📦" },
-  { name: "Sourcetree", icon: "🌳" },
-  { name: "Figma", icon: "🎨" },
-  { name: "ClickUp", icon: "📋" },
-  { name: "Postman", icon: "📬" },
+  { name: "VS Code", image: "/icon/vscode.png" },
+  { name: "Git", image: "/icon/git.png" },
+  { name: "Figma", image: "/icon/figma.png" },
+  // { name: "Sourcetree", image: "/icon/sourcetree.png" },
+  // { name: "ClickUp", image: "/icon/clickup.png" },
+  // { name: "Postman", image: "/icon/postman.png" },
 ];
 
 export const TABS: TAB[] = [
