@@ -143,8 +143,8 @@ export const TESTIMONIALS: Testimonial[] = [
 export const TOOLS: Tool[] = [
   { name: "VS Code", image: "/icon/vscode.png" },
   { name: "Git", image: "/icon/git.png" },
+  { name: "Github", image: "/icon/github.png" },
   { name: "Figma", image: "/icon/figma.png" },
-  // { name: "Sourcetree", image: "/icon/sourcetree.png" },
   // { name: "ClickUp", image: "/icon/clickup.png" },
   // { name: "Postman", image: "/icon/postman.png" },
 ];
