@@ -54,7 +54,7 @@ export default function Contact() {
                 href="/SAN_CHHAYLY.pdf"
                 whileTap={{ scale: 0.95 }}
                 whileHover={{ scale: 0.98 }}
-                className="block bg-[#0B1C2F] text-[#FFD966] p-4 font-black text-center cursor-pointer hover:bg-[#E23636] hover:text-white transition-colors uppercase shadow-[4px_4px_0px_0px_#2E8B57]"
+                className="block bg-[#0B1C2F] text-[#FFD966] p-4 font-black text-center cursor-pointer hover:bg-[#E23636] hover:text-white transition-colors uppercase shadow-[4px_4px_0px_0px_#E23636] hover:shadow-[4px_4px_0px_0px_#0B1C2F]"
               >
                 Download Resume
               </motion.a>
@@ -105,8 +105,8 @@ export default function Contact() {
                       {social.label.split(" ")[0]}
                     </span>
                   </div>
-                  <div className="font-mono text-[10px] font-black opacity-0 group-hover:opacity-100 transition-opacity text-[#E23636]">
-                    CONNECT &gt;&gt;
+                  <div className="font-mono text-[10px] font-black opacity-0 group-hover:opacity-100 transition-opacity text-[#FFD966]">
+                    →
                   </div>
                 </motion.a>
               );

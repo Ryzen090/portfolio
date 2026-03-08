@@ -126,17 +126,17 @@ export const CERTIFICATIONS: Certification[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     text: "One of the best frontend developers I've worked with. Clean code and great communication.",
-    author: "Sarah Johnson",
-    role: "Product Manager",
-    company: "Tech Corp",
-    avatar: "👩‍💼",
+    author: "SereiSeth Chhay",
+    role: " Senior Backend Developer",
+    company: "MONAKOM TECHNOLOGY",
+    avatar: "/avatar/SereiSeth.jpg",
   },
   {
     text: "Delivered complex features ahead of schedule. Highly recommended!",
-    author: "Mike Chen",
-    role: "CTO",
-    company: "StartupX",
-    avatar: "👨‍💻",
+    author: "Vileap Vongs",
+    role: "Senior Frontend Developer",
+    company: "Ministry of Post and Telecommunications",
+    avatar: "/avatar/Vileap.jpg",
   },
 ];
 

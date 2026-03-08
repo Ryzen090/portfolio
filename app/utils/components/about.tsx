@@ -8,58 +8,71 @@ import {
 import Image from "../Image";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const Technologies = ({ tech }: { tech: Technology }) => (
-  <motion.div
-    layout
-    initial={{ opacity: 0, rotateY: 30 }}
-    animate={{ opacity: 1, rotateY: 0 }}
-    exit={{ opacity: 0, rotateY: -30 }}
-    whileHover={{ scale: 1.02 }}
-    className={`relative group cursor-pointer perspective-500 w-full`}
-  >
-    <div className="absolute -top-2 -left-2 w-12 h-12 overflow-hidden z-10">
-      <div className="absolute top-0 left-0 w-16 h-6 bg-[#E03A3C] transform -rotate-45 -translate-x-4 translate-y-4 border-2 border-[#0A1A2F] shadow-lg" />
-    </div>
-
-    <div className="absolute inset-0 bg-[#F7D44A] rounded-lg rotate-2 group-hover:rotate-3 transition-transform" />
-    <div className="absolute inset-0 bg-[#E03A3C] rounded-lg -rotate-1 group-hover:-rotate-2 transition-transform" />
-
-    <div
-      className={`relative bg-[#FDF5E6] border-4 border-[#0A1A2F] rounded-lg transform -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform p-6`}
+export const Technologies = ({ tech }: { tech: Technology }) => {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03, rotate: -1.5 }}
+      whileTap={{ scale: 0.97 }}
+      className="relative w-full group"
     >
-      <div className="w-20 h-20 mx-auto mb-3 bg-[#f5f2ec] rounded-full border-4 border-[#E03A3C] flex items-center justify-center text-3xl">
-        <Image
-          src={tech.image}
-          alt={tech.name}
-          className="w-12 h-12 object-contain"
-        />
-      </div>
+      <div className="absolute inset-0 bg-[#0A1A2F] translate-x-2 translate-y-2 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform rounded-xl" />
 
-      <div className="flex-1 text-center">
-        <span className="inline-block px-3 py-1 bg-[#E03A3C] text-white text-[8px] font-mono font-black mb-2">
-          FRONTEND
-        </span>
+      <div className="relative bg-[#FDF5E6] border-4 border-[#0A1A2F] rounded-xl p-6 flex flex-col items-center justify-center transition-all group-hover:-translate-x-1 group-hover:-translate-y-1">
+        <div className="relative mb-6">
+          <div className="absolute inset-0 bg-[#F7D44A] rounded-full scale-0 group-hover:scale-110 transition-transform duration-500 blur-xl opacity-50" />
 
-        <h3 className="text-2xl font-black uppercase mb-2 tracking-wide">
-          {tech.name}
-        </h3>
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 border border-dashed border-[#E03A3C] rounded-full opacity-40"
+          />
 
-        <div className="flex justify-center gap-1 mb-3">
-          {[...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              className="w-3 h-3 border-2 border-[#0A1A2F] rotate-45 bg-[#F7D44A]"
-            />
-          ))}
+          <div className="relative w-24 h-24 flex items-center justify-center">
+            {tech.image ? (
+              <Image
+                src={tech.image}
+                alt={tech.name}
+                className="w-full h-full object-contain transition-transform duration-300 group-hover:rotate-12"
+              />
+            ) : (
+              <div className="w-full h-full bg-[#0A1A2F] rounded-full flex items-center justify-center">
+                <span className="text-white font-black text-2xl">
+                  {tech.name[0]}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="inline-block border-2 border-[#0A1A2F] px-3 py-1">
-          <span className="text-xs font-mono font-black">S-RANK</span>
+        <div className="w-full text-center space-y-2">
+          <h3 className="text-2xl font-black uppercase tracking-tight text-[#0A1A2F]">
+            {tech.name}
+          </h3>
+
+          <div className="inline-block px-3 py-1 bg-[#E03A3C] border-2 border-[#0A1A2F] shadow-[2px_2px_0px_0px_rgba(10,26,47,1)]">
+            <span className="text-[10px] font-black text-white uppercase italic">
+              Standard
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-6 pt-4 border-t-2 border-[#0A1A2F]/10 w-full flex justify-between items-center px-2">
+          <div className="flex gap-1">
+            {[...Array(3)].map((_, i) => (
+              <div
+                key={i}
+                className="w-2 h-2 rounded-full bg-[#F7D44A] border border-[#0A1A2F]"
+              />
+            ))}
+          </div>
+          <span className="text-[10px] font-mono font-black text-[#0A1A2F]/40">
+            v.2023
+          </span>
         </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 export const Experiences = ({
   items,
@@ -86,10 +99,6 @@ export const Experiences = ({
         onClick={() => onSelect(selectedItem === index ? null : index)}
         className="relative group cursor-pointer mb-10"
       >
-        {index === 0 && (
-          <div className="absolute -top-6 left-16 w-0.5 h-6 bg-[#E03A3C]" />
-        )}
-
         <div className="relative flex items-start gap-6">
           <div className="relative z-10 flex flex-col items-center">
             <div className="relative">
@@ -212,11 +221,6 @@ export const Experiences = ({
             </div>
           </div>
         </div>
-
-        {/* Connector line between items */}
-        {index < items.length - 1 && (
-          <div className="absolute left-24 -bottom-6 w-0.5 h-6 bg-[#E03A3C] opacity-50" />
-        )}
       </motion.div>
     ))}
   </motion.div>
@@ -382,8 +386,11 @@ export const Testimonials = ({
 
             <div className="flex items-center justify-between mt-8 pt-4 border-t-4 border-[#0A1A2F]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#F7D44A] border-2 border-[#0A1A2F] flex items-center justify-center text-xl">
-                  {items[currentIndex].avatar}
+                <div className="w-10 h-10 bg-[#F7D44A] flex items-center justify-center text-xl">
+                  <Image
+                    src={items[currentIndex].avatar}
+                    alt={items[currentIndex].author}
+                  />
                 </div>
                 <div>
                   <span className="text-sm font-black block uppercase">
