@@ -70,7 +70,7 @@ export default function Project() {
                     <Image
                       alt={project.title}
                       src={project.image}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100"
+                      className="w-full h-full object-cover grayscale-0 transition-all duration-500 opacity-80"
                     />
                   </div>
                 </div>
