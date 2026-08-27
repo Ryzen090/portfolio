@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Svay Rieng Football",
-    image: "/pkrsr.png",
+    image: "/experiences/pkrsr.png",
     description:
       "A modern club management platform featuring match updates and team statistics.",
     tech: ["Next.js", "Ant Design"],
@@ -43,7 +43,7 @@ export const PROJECTS: Project[] = [
   {
     id: 2,
     title: "NSSF Hospital Admin",
-    image: "/hospital.png",
+    image: "/experiences/hospital.png",
     description:
       "Administrative system for healthcare operations and streamlined service workflows.",
     tech: ["Angular", "Material UI"],
@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
   {
     id: 3,
     title: "NSSF Inspection Admin",
-    image: "/inspection.png",
+    image: "/experiences/inspection.png",
     description:
       "Administrative system for inspection workflows and reporting.",
     tech: ["Angular", "Material UI"],
