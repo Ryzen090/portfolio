@@ -22,6 +22,9 @@ export interface Experience {
   company: string;
   technologies: string[];
   responsibilities: string[];
+  type?: string;
+  level?: string;
+  workMode?: string;
 }
 
 export interface Technology {

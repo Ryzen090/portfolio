@@ -156,15 +156,16 @@ export const Experiences = ({
               </div>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1">
-                  FULL-TIME
-                </span>
-                <span className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1">
-                  JUNIOR
-                </span>
-                <span className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1">
-                  REMOTE
-                </span>
+                {[item.type, item.level, item.workMode]
+                  .filter(Boolean)
+                  .map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
               </div>
 
               <AnimatePresence>
