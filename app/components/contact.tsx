@@ -69,11 +69,11 @@ export default function Contact() {
 
           <div className="flex flex-col gap-4">
             <div className="flex justify-between items-end mb-4 border-b-4 border-[#0B1C2F] pb-2">
-              <span className="font-black text-xs uppercase italic tracking-widest">
+              <span className="font-black text-xs uppercase italic tracking-widest opacity-40">
                 CONNECT_CHANNELS
               </span>
               <span className="text-[10px] font-bold opacity-40">
-                CONTACT_NODE
+                CONTACT
               </span>
             </div>
 

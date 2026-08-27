@@ -15,7 +15,7 @@ export default function Hero() {
             className="mb-4"
           >
             <span className="bg-[#0B1C2F] text-[#FFD966] px-2 py-1 text-xs font-black uppercase tracking-widest">
-              Fullstack_Creative
+              Creative
             </span>
           </motion.div>
 

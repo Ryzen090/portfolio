@@ -41,11 +41,11 @@ export default function Home() {
       <div className="fixed inset-0 z-50 pointer-events-none border-12 md:border-20 border-[#0B1C2F] p-4 md:p-8 flex flex-col justify-between">
         <div className="flex justify-between items-start">
           <div className="bg-[#0B1C2F] text-[#FFD966] px-4 py-2 text-[10px] font-black uppercase tracking-widest shadow-[6px_6px_0px_0px_#E23636] pointer-events-auto">
-            System_Protocol: v.2.0.6
+            System: v.0.1.6
           </div>
           <div className="text-[#0B1C2F] text-[10px] font-black text-right uppercase bg-white border-2 border-[#0B1C2F] p-2 shadow-[4px_4px_0px_0px_#E23636] pointer-events-auto">
             Status: Active <br />
-            Auth: Admin_Chhayly
+            Auth: Chhayly
           </div>
         </div>
 
