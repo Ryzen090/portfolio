@@ -51,7 +51,7 @@ export default function Contact() {
               </p>
               <motion.a
                 download
-                href="/SAN_CHHAYLY.pdf"
+                href="/cv/SAN_CHHAYLY.pdf"
                 whileTap={{ scale: 0.95 }}
                 whileHover={{ scale: 0.98 }}
                 className="block bg-[#0B1C2F] text-[#FFD966] p-4 font-black text-center cursor-pointer hover:bg-[#E23636] hover:text-white transition-colors uppercase shadow-[4px_4px_0px_0px_#E23636] hover:shadow-[4px_4px_0px_0px_#0B1C2F]"
@@ -69,11 +69,11 @@ export default function Contact() {
 
           <div className="flex flex-col gap-4">
             <div className="flex justify-between items-end mb-4 border-b-4 border-[#0B1C2F] pb-2">
-              <span className="font-black text-xs uppercase italic tracking-widest">
+              <span className="font-black text-xs uppercase italic tracking-widest opacity-40">
                 CONNECT_CHANNELS
               </span>
               <span className="text-[10px] font-bold opacity-40">
-                CONTACT_NODE
+                CONTACT
               </span>
             </div>
 

@@ -156,15 +156,16 @@ export const Experiences = ({
               </div>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1">
-                  FULL-TIME
-                </span>
-                <span className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1">
-                  JUNIOR
-                </span>
-                <span className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1">
-                  REMOTE
-                </span>
+                {[item.type, item.level, item.workMode]
+                  .filter(Boolean)
+                  .map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-mono bg-white border border-[#0A1A2F] px-2 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
               </div>
 
               <AnimatePresence>
@@ -181,22 +182,24 @@ export const Experiences = ({
                           <p className="text-xs font-mono font-black text-[#2E8B57] mb-3">
                             RESPONSIBILITIES
                           </p>
+
                           <ul className="space-y-2 font-mono text-sm">
-                            <li className="flex items-center gap-2">
-                              <span className="w-2 h-2 bg-[#E03A3C] rotate-45 shrink-0" />
-                              <span>Lead frontend architecture</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <span className="w-2 h-2 bg-[#2E8B57] rotate-45 shrink-0" />
-                              <span>Code review and mentoring</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <span className="w-2 h-2 bg-[#F7D44A] rotate-45 shrink-0" />
-                              <span>Performance optimization</span>
-                            </li>
+                            {item.responsibilities.map((responsibility, i) => (
+                              <li key={i} className="flex items-center gap-2">
+                                <span
+                                  className={`w-2 h-2 rotate-45 shrink-0 ${
+                                    i % 3 === 0
+                                      ? "bg-[#E03A3C]"
+                                      : i % 3 === 1
+                                        ? "bg-[#2E8B57]"
+                                        : "bg-[#F7D44A]"
+                                  }`}
+                                />
+                                <span>{responsibility}</span>
+                              </li>
+                            ))}
                           </ul>
                         </div>
-
                         <div>
                           <p className="text-xs font-mono font-black text-[#2E8B57] mb-3">
                             TECHNOLOGIES
@@ -377,7 +380,7 @@ export const Testimonials = ({
                 &quot;
               </span>
               <p className="text-xl font-mono flex-1 pt-2">
-                {items[currentIndex].text}
+                {items[currentIndex]?.text}
               </p>
               <span className="text-6xl font-black text-[#E03A3C] leading-none self-end rotate-180">
                 &quot;
@@ -388,8 +391,8 @@ export const Testimonials = ({
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-[#F7D44A] flex items-center justify-center text-xl">
                   <Image
-                    src={items[currentIndex].avatar}
-                    alt={items[currentIndex].author}
+                    src={items[currentIndex]?.avatar}
+                    alt={items[currentIndex]?.author}
                   />
                 </div>
                 <div>
@@ -397,7 +400,7 @@ export const Testimonials = ({
                     {items[currentIndex].author}
                   </span>
                   <span className="text-[10px] font-mono opacity-60">
-                    {items[currentIndex].role} • {items[currentIndex].company}
+                    {items[currentIndex]?.role} • {items[currentIndex]?.company}
                   </span>
                 </div>
               </div>
@@ -418,7 +421,7 @@ export const Testimonials = ({
       </AnimatePresence>
     </div>
 
-    <div className="flex items-center justify-center gap-6">
+    {/* <div className="flex items-center justify-center gap-6">
       <button
         onClick={() =>
           onNavigate(currentIndex === 0 ? items.length - 1 : currentIndex - 1)
@@ -436,6 +439,6 @@ export const Testimonials = ({
       >
         →
       </button>
-    </div>
+    </div> */}
   </motion.div>
 );

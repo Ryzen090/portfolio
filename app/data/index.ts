@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Svay Rieng Football",
-    image: "/pkrsr.png",
+    image: "/experiences/pkrsr.png",
     description:
       "A modern club management platform featuring match updates and team statistics.",
     tech: ["Next.js", "Ant Design"],
@@ -43,7 +43,7 @@ export const PROJECTS: Project[] = [
   {
     id: 2,
     title: "NSSF Hospital Admin",
-    image: "/pkrsr.png",
+    image: "/experiences/hospital.png",
     description:
       "Administrative system for healthcare operations and streamlined service workflows.",
     tech: ["Angular", "Material UI"],
@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
   {
     id: 3,
     title: "NSSF Inspection Admin",
-    image: "/pkrsr.png",
+    image: "/experiences/inspection.png",
     description:
       "Administrative system for inspection workflows and reporting.",
     tech: ["Angular", "Material UI"],
@@ -62,16 +62,34 @@ export const EXPERIENCES: Experience[] = [
   {
     year: "2024",
     end: "Present",
-    event: "Junior Frontend Developer",
+    event: "Frontend Developer",
     company: "Polygram Solution",
-    technologies: ["Angular", "Material UI"],
+    technologies: ["Angular", "TypeScript", "Angular Material"],
+    type: "FULL-TIME",
+    level: "MID-LEVEL",
+    workMode: "ONSITE",
+    responsibilities: [
+      "Develop and maintain enterprise web applications",
+      "Build reusable and scalable Angular components",
+      "Integrate REST APIs and manage application data",
+      "Collaborate with backend developers and UI/UX designers",
+    ],
   },
   {
     year: "2023",
     end: "2024",
-    event: "Junior Frontend Developer",
+    event: "JUNIOR Frontend Developer",
     company: "Wonderpass Technology",
-    technologies: ["Next.js", "Ant Design"],
+    technologies: ["Next.js", "React", "TypeScript", "Ant Design"],
+    type: "FULL-TIME",
+    level: "JUNIOR",
+    workMode: "ONSITE",
+    responsibilities: [
+      "Develop responsive web applications with Next.js",
+      "Build reusable UI components and frontend features",
+      "Integrate APIs and handle client-side application state",
+      "Improve website performance and responsive design",
+    ],
   },
 ];
 
@@ -112,14 +130,14 @@ export const TECHNOLOGY: Technology[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    name: "Hun Sen Batheay High School",
-    year: "2020",
-    title: "High School Diploma",
-  },
-  {
     name: "Royal University Of Phnom Penh",
     year: "2024",
     title: "Bachelor of Science",
+  },
+  {
+    name: "Hun Sen Batheay High School",
+    year: "2020",
+    title: "High School Diploma",
   },
 ];
 
@@ -127,17 +145,17 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     text: "One of the best frontend developers I've worked with. Clean code and great communication.",
     author: "SereiSeth Chhay",
-    role: " Senior Backend Developer",
+    role: " Senior Developer",
     company: "MONAKOM TECHNOLOGY",
     avatar: "/avatar/SereiSeth.jpg",
   },
-  {
-    text: "Delivered complex features ahead of schedule. Highly recommended!",
-    author: "Vileap Vongs",
-    role: "Senior Frontend Developer",
-    company: "Ministry of Post and Telecommunications",
-    avatar: "/avatar/Vileap.jpg",
-  },
+  // {
+  //   text: "Delivered complex features ahead of schedule. Highly recommended!",
+  //   author: "Vileap Vongs",
+  //   role: "Senior Frontend Developer",
+  //   company: "Ministry of Post and Telecommunications",
+  //   avatar: "/avatar/Vileap.jpg",
+  // },
 ];
 
 export const TOOLS: Tool[] = [
